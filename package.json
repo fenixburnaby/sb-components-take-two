@@ -2,7 +2,7 @@
   "name": "sb-components-take-two",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/main.js",
+  "main": "dist/esm/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack.dev.config.js",
@@ -34,6 +34,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "sass-loader": "^13.2.0",
@@ -61,5 +62,8 @@
     "@emotion/styled": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "@rollup/plugin-replace": "^5.0.2"
   }
 }

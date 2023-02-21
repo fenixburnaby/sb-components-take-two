@@ -4,6 +4,9 @@ import babel from "@rollup/plugin-babel";
 import pkg from "./package.json";
 import postcss from "rollup-plugin-postcss";
 import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
+import nodeGlobals from 'rollup-plugin-node-globals';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const input = ["src/lib/index.js"];
 const globals = {
@@ -45,8 +48,35 @@ export default [
                 babelHelpers: "bundled",
             }),
             commonjs(commonjsOptions),
+            nodeGlobals(),
+            replace({ preventAssignment: true, 'process.env.NODE_ENV': JSON.stringify('development') }),
             postcss(),
             // terser()
+        ],
+        external: Object.keys(globals),
+        output: {
+            file: `dist/${pkg.name}.development.js`,
+            format: "umd",
+            name: "sbComponentLibrary", // this is the name of the global object
+            esModule: false,
+            exports: "named",
+            sourcemap: false,
+            globals,
+        },
+    },
+    {
+        // UMD Prod
+        input,
+        plugins: [
+            nodeResolve(),
+            babel({
+                babelHelpers: "bundled",
+            }),
+            commonjs(commonjsOptions),
+            nodeGlobals(),
+            replace({ preventAssignment: true, 'process.env.NODE_ENV': JSON.stringify('production') }),
+            postcss(),
+            terser()
         ],
         external: Object.keys(globals),
         output: {
@@ -59,10 +89,19 @@ export default [
             globals,
         },
     },
-/*// ESM and CJS
+// ESM and CJS
     {
         input,
-        plugins: [nodeResolve()],
+        plugins: [
+            peerDepsExternal(),
+            nodeResolve(),
+            babel({
+                    babelHelpers: "bundled",
+                }
+            ),
+            commonjs(),
+            postcss(),
+        ],
         output: [
             {
                 dir: "dist/esm",
@@ -77,5 +116,5 @@ export default [
                 sourcemap: true,
             },
         ],
-    },*/
+    },
 ];
