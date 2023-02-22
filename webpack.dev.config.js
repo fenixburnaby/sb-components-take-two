@@ -11,6 +11,9 @@ module.exports = {
             filename: 'index.html'
         }),
     ],
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"],
+    },
     module: {
         rules: [
             {
@@ -19,6 +22,11 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.(ts|tsx)?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
             },
             {
                 test: /\.scss$/,
