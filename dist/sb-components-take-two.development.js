@@ -52,7 +52,48 @@
     }
   }
 
-  var css_248z = ".hello-wrapper {\n  padding: 10px;\n  font-family: sans-serif;\n  font-size: 20px;\n  color: red; }\n";
+  var css_248z$1 = ".hello-wrapper {\n  padding: 10px;\n  font-family: sans-serif;\n  font-size: 20px;\n  color: red; }\n";
+  styleInject(css_248z$1);
+
+  /******************************************************************************
+  Copyright (c) Microsoft Corporation.
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+  REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+  AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+  INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+  LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+  OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+  PERFORMANCE OF THIS SOFTWARE.
+  ***************************************************************************** */
+
+  var __assign = function() {
+      __assign = Object.assign || function __assign(t) {
+          for (var s, i = 1, n = arguments.length; i < n; i++) {
+              s = arguments[i];
+              for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+          }
+          return t;
+      };
+      return __assign.apply(this, arguments);
+  };
+
+  function __rest(s, e) {
+      var t = {};
+      for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+          t[p] = s[p];
+      if (s != null && typeof Object.getOwnPropertySymbols === "function")
+          for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+              if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                  t[p[i]] = s[p[i]];
+          }
+      return t;
+  }
+
+  var css_248z = ".customButton {\n  margin: 10px 0; }\n";
   styleInject(css_248z);
 
   const common = {
@@ -9212,12 +9253,16 @@ Please use another name.` );
   } ;
   var Button$1 = Button;
 
+  var CustomButton = function (props) {
+      var innerText = props.innerText, restOfProps = __rest(props, ["innerText"]);
+      return (React__default["default"].createElement("div", { className: "customButton" },
+          React__default["default"].createElement(Button$1, __assign({}, restOfProps), innerText)));
+  };
+
   const HelloWorld = () => {
     return /*#__PURE__*/React__default["default"].createElement("div", {
       className: "hello-wrapper"
-    }, "Hello world!", /*#__PURE__*/React__default["default"].createElement(Button$1, {
-      variant: "contained"
-    }, "Hello THE BUNDLE!"));
+    }, "Hello world!");
   };
   const InputBox = () => {
     return /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement("input", null));
@@ -9229,6 +9274,7 @@ Please use another name.` );
       export {InputBox} from "./components/input";
   */
 
+  exports.CustomButton = CustomButton;
   exports.HelloWorld = HelloWorld;
   exports.InputBox = InputBox;
 

@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.scss";
+import {CustomButton} from "./components/button";
 
 
 export const HelloWorld = () => {
@@ -18,7 +19,7 @@ export const InputBox = () => {
     )
 }
 
-export * from './components/button';
+export { CustomButton };
 
 /*
     make components directory for better structuring and export everything here.
