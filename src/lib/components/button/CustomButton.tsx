@@ -8,7 +8,9 @@ const CustomButton: React.FC<CustomButtonProps> = (props) => {
   const {innerText, ...restOfProps} = props;
 
   return (
-    <div className="customButton"><Button {...restOfProps}>{innerText}</Button></div>
+    <div className="customButton">
+      <Button {...restOfProps}>{innerText}</Button>
+    </div>
   );
 }
 

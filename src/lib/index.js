@@ -18,6 +18,8 @@ export const InputBox = () => {
     )
 }
 
+export * from './components/button';
+
 /*
     make components directory for better structuring and export everything here.
     export {HelloWorld} from "./components/hello";
