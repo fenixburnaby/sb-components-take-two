@@ -8,7 +8,7 @@ The project is intended to use Typescript and Storybook to display its content. 
  
  ## Starting the sandbox
  
- Run `npm start` will use the webpack dev server and display what the `src/index.js` content.
+ Run `npm start` and it will use the webpack dev server and display what the `src/index.js` contains.
  
  ## Using [Storybook](https://storybook.js.org/)
  
