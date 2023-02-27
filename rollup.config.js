@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import nodeGlobals from 'rollup-plugin-node-globals';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import typescript from "rollup-plugin-typescript2";
 
 const input = ["src/lib/index.js"];
 const globals = {
@@ -48,6 +49,7 @@ export default [
                 babelHelpers: "bundled",
             }),
             commonjs(commonjsOptions),
+            typescript({ useTsconfigDeclarationDir: true }),
             nodeGlobals(),
             replace({ preventAssignment: true, 'process.env.NODE_ENV': JSON.stringify('development') }),
             postcss(),
@@ -73,6 +75,7 @@ export default [
                 babelHelpers: "bundled",
             }),
             commonjs(commonjsOptions),
+            typescript({ useTsconfigDeclarationDir: true }),
             nodeGlobals(),
             replace({ preventAssignment: true, 'process.env.NODE_ENV': JSON.stringify('production') }),
             postcss(),
@@ -100,6 +103,7 @@ export default [
                 }
             ),
             commonjs(),
+            typescript({ useTsconfigDeclarationDir: true }),
             postcss(),
         ],
         output: [
