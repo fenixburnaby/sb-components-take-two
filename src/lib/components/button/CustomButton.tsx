@@ -5,12 +5,10 @@ import { Button } from "@mui/material";
 
 const CustomButton: React.FC<CustomButtonProps> = (props) => {
 
-  const {innerText, ...restOfProps} = props;
+  const { children, ...restOfProps } = props;
 
   return (
-    <div className="customButton">
-      <Button {...restOfProps}>{innerText}</Button>
-    </div>
+      <Button {...restOfProps}>{children}</Button>
   );
 }
 

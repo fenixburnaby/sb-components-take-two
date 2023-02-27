@@ -8,7 +8,7 @@ const App = () => {
         <div>
             <HelloWorld />
             <InputBox />
-            <CustomButton variant='contained' innerText='Hello Custom Component' onClick={() => alert('Hello there!')} />
+            <CustomButton variant='contained' onClick={() => alert('Hello there!')} >{'Hello Custom Component!'}</CustomButton>
         </div>
     )
 }
