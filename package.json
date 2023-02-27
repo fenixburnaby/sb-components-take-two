@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook"
   },
-  "author": "",
+  "author": "fenixburnaby",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.0",
